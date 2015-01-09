@@ -39,6 +39,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MathEx.cs" />
     <Compile Include="Period.cs" />
     <Compile Include="PeriodizationAlgorithm.cs" />
     <Compile Include="PeriodizationExtensions.cs" />

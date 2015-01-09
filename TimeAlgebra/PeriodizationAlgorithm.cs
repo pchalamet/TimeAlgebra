@@ -42,12 +42,8 @@ namespace TimeAlgebra
                 if (current.From < atom.To)
                 {
                     var value = builder(current.Value, atom.Value);
-                    var from = current.From < atom.From
-                        ? atom.From
-                        : current.From;
-                    var to = atom.To < current.To
-                        ? atom.To
-                        : current.To;
+                    var from = MathEx.Max(current.From, atom.From);
+                    var to = MathEx.Min(current.To, atom.To);
                     var period = new Period<T3>(from, to, value);
                     result.Add(period);
                 }
@@ -107,7 +103,6 @@ namespace TimeAlgebra
             return result;
         }
 
-
         // prerequisite: enumerator is from a valid periodization
         public static IEnumerable<Period<T>> Union<T>(IEnumerable<Period<T>> enumerable, Period<T> atom)
         {
@@ -127,7 +122,7 @@ namespace TimeAlgebra
                 }
                 // current:   [----------[ 
                 // atom:                 [-----[
-                
+
                 var same = eqcmp.Equals(current.Value, atom.Value);
 
                 // current:      [A-------[ 
