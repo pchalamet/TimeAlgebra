@@ -42,8 +42,8 @@ namespace TimeAlgebra
                 if (current.From < atom.To)
                 {
                     var value = builder(current.Value, atom.Value);
-                    var from = MathEx.Max(current.From, atom.From);
-                    var to = MathEx.Min(current.To, atom.To);
+                    var from = Helpers.Max(current.From, atom.From);
+                    var to = Helpers.Min(current.To, atom.To);
                     var period = new Period<T3>(from, to, value);
                     result.Add(period);
                 }
@@ -118,7 +118,7 @@ namespace TimeAlgebra
                 // atom:      [----------[ 
                 if (atom.To <= current.From)
                 {
-                    NonInterlocked.Exchange(ref current, ref atom);
+                    Helpers.Exchange(ref current, ref atom);
                 }
                 // current:   [----------[ 
                 // atom:                 [-----[

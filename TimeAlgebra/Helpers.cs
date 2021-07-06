@@ -2,7 +2,7 @@
 
 namespace TimeAlgebra
 {
-    public static class MathEx
+    public static class Helpers
     {
         public static T Min<T>(T a, T b) where T : IComparable
         {
@@ -18,6 +18,13 @@ namespace TimeAlgebra
             return cmp < 0
                 ? b
                 : a;
+        }
+
+        public static void Exchange<T>(ref T left, ref T right)
+        {
+            var tmp = left;
+            left = right;
+            right = tmp;
         }
     }
 }
