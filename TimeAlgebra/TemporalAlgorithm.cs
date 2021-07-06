@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace TimeAlgebra
 {
-    internal class PeriodizationAlgorithm
+    internal class TemporalAlgorithm
     {
-        // prerequisite: enumerator is from a valid periodization
+        // prerequisite: enumerator is from a valid temporal
         public static IEnumerable<Period<T3>> Intersect<T1, T2, T3>(IEnumerable<Period<T1>> enumerable, Period<T2> atom, Func<T1, T2, T3> builder)
         {
             var result = new List<Period<T3>>();
@@ -52,7 +52,7 @@ namespace TimeAlgebra
             return result;
         }
 
-        // prerequisite: enumerator is from a valid periodization
+        // prerequisite: enumerator is from a valid temporal
         public static IEnumerable<Period<T3>> Combine<T1, T2, T3>(IEnumerable<Period<T1>> enumerable, Period<T2> atom, Func<T1, T2, T3> builder)
         {
             var result = new List<Period<T3>>();
@@ -103,7 +103,7 @@ namespace TimeAlgebra
             return result;
         }
 
-        // prerequisite: enumerator is from a valid periodization
+        // prerequisite: enumerator is from a valid temporal
         public static IEnumerable<Period<T>> Union<T>(IEnumerable<Period<T>> enumerable, Period<T> atom)
         {
             var result = new List<Period<T>>();

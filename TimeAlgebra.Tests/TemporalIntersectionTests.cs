@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace TimeAlgebra.Tests
 {
     [TestFixture]
-    public class PeriodizationIntersectionTests
+    public class TemporalIntersectionTests
     {
         [Test]
         public void Check_intersection_before()
@@ -14,7 +14,7 @@ namespace TimeAlgebra.Tests
             //   3 4 5 6
             var date1 = new DateTime(2015, 1, 3);
             var period1 = Period<int>.Days(date1, 3, 5);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             // 2 3 4 5
             var date2 = new DateTime(2015, 1, 2);
@@ -37,7 +37,7 @@ namespace TimeAlgebra.Tests
             // 2 3 4 5
             var date2 = new DateTime(2015, 1, 2);
             var period2 = Period<bool>.Days(date2, 3, true);
-            var res2 = Periodization<bool>.Empty.Append(period2);
+            var res2 = Temporal<bool>.Empty.Append(period2);
             var res3 = res2.Intersect(period1, Tuple.Create);
 
             Check.That(res3.Periods).HasSize(1);
@@ -56,7 +56,7 @@ namespace TimeAlgebra.Tests
             //   2 3 4     7 8
             var date2 = new DateTime(2015, 1, 2);
             var period2 = Period<bool>.Days(date2, 2, true);
-            var res2 = Periodization<bool>.Empty.Append(period2);
+            var res2 = Temporal<bool>.Empty.Append(period2);
 
             var date3 = new DateTime(2015, 1, 7);
             var period3 = Period<bool>.Day(date3, false);
@@ -79,7 +79,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2015, 1, 1);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2015, 2, 1);
             var period2 = Period<bool>.Day(date2, true);
@@ -94,7 +94,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2015, 1, 1);
             var period1 = Period<int>.Days(date1, 3, 5);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2015, 1, 1);
             var period2 = Period<bool>.Days(date2, 3, true);

@@ -6,12 +6,12 @@ using NUnit.Framework;
 namespace TimeAlgebra.Tests
 {
     [TestFixture]
-    public class PeriodizationUnionTests
+    public class TemporalUnionTests
     {
         [Test]
         public void Check_empty_has_no_element()
         {
-            var tempo = Periodization<int>.Empty;
+            var tempo = Temporal<int>.Empty;
             Check.That(tempo.Periods).HasSize(0);
         }
 
@@ -20,7 +20,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2014, 12, 29);
             var period = Period<int>.Day(date1, 1);
-            var res = Periodization<int>.Empty.Append(period);
+            var res = Temporal<int>.Empty.Append(period);
             Check.That(res.Periods).HasSize(1);
 
             var singlePeriod = res.Periods.Single();
@@ -34,7 +34,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2015, 1, 2);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2015, 12, 29);
             var period2 = Period<int>.Day(date2, 2);
@@ -58,7 +58,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2014, 12, 29);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2015, 1, 1);
             var period2 = Period<int>.Day(date2, 2);
@@ -82,7 +82,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2014, 12, 29);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2015, 1, 3);
             var period2 = Period<int>.Day(date2, 2);
@@ -115,7 +115,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2014, 12, 29);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2014, 12, 29);
             var period2 = Period<int>.Day(date2, 2);
@@ -128,7 +128,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2014, 12, 29);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
 
             var date2 = new DateTime(2014, 12, 29);
             var period2 = Period<int>.Days(date2, 2, 1);
@@ -145,7 +145,7 @@ namespace TimeAlgebra.Tests
         {
             var date1 = new DateTime(2015, 1, 1);
             var period1 = Period<int>.Day(date1, 1);
-            var res1 = Periodization<int>.Empty.Append(period1);
+            var res1 = Temporal<int>.Empty.Append(period1);
             Console.WriteLine(res1);
 
             var date2 = new DateTime(2015, 1, 3);

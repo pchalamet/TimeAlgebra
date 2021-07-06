@@ -5,20 +5,20 @@ using System.Text;
 
 namespace TimeAlgebra
 {
-    public class Periodization<T>
+    public class Temporal<T>
     {
-        public static Periodization<T> Empty = new Periodization<T>();
+        public static Temporal<T> Empty = new Temporal<T>();
 
         private readonly IEnumerable<Period<T>> _periods;
 
-        // used to create an empty periodization
-        private Periodization()
+        // used to create an empty temporal
+        private Temporal()
             : this(Enumerable.Empty<Period<T>>())
         {
         }
 
-        // used to add a new element in a periodization
-        internal Periodization(IEnumerable<Period<T>> periods)
+        // used to add a new element in a temporal
+        internal Temporal(IEnumerable<Period<T>> periods)
         {
             _periods = periods;
         }
