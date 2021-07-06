@@ -31,5 +31,20 @@ namespace TimeAlgebra
             var res = inters.Aggregate(Periodization<T3>.Empty, (p, e) => p.Append(e));
             return res;
         }
+
+        public static Periodization<T3> Combine<T1, T2, T3>(this Periodization<T1> @this, Period<T2> period, Func<T1, T2, T3> builder)
+        {
+            var list = PeriodizationAlgorithm.Combine(@this.Periods, period, builder);
+            return new Periodization<T3>(list);
+        }
+
+        public static Periodization<T3> Combine<T1, T2, T3>(this Periodization<T1> @this, Periodization<T2> periodization, Func<T1, T2, T3> builder)
+        {
+            var inters = from x in periodization.Periods
+                         let inter = @this.Combine(x, builder)
+                         select inter;
+            var res = inters.Aggregate(Periodization<T3>.Empty, (p, e) => p.Append(e));
+            return res;
+        }
     }
 }
